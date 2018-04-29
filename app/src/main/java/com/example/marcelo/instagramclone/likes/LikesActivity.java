@@ -1,4 +1,4 @@
-package com.example.marcelo.instagramclone;
+package com.example.marcelo.instagramclone.likes;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -8,19 +8,19 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.marcelo.instagramclone.R;
 import com.example.marcelo.instagramclone.Utils.BottomNavigationViewAdapter;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
-public class ProfileActivity extends AppCompatActivity {
+public class LikesActivity extends AppCompatActivity {
 
     private static final String TAG = "SearchActivity";
-    private Context mContext = ProfileActivity.this;
-    private final static int ACTIVITY_NUM = 2;
-
+    private Context mContext = LikesActivity.this;
+    private final static int ACTIVITY_NUM = 4;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
         Log.d(TAG, "onCreate: started");
         setupBottomNavigationView();
     }

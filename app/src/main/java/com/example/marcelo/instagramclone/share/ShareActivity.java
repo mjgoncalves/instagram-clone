@@ -1,25 +1,27 @@
-package com.example.marcelo.instagramclone;
+package com.example.marcelo.instagramclone.share;
 
 import android.content.Context;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.marcelo.instagramclone.R;
 import com.example.marcelo.instagramclone.Utils.BottomNavigationViewAdapter;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
-public class MainActivity extends AppCompatActivity {
+public class ShareActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
-    private Context mContext = MainActivity.this;
-    private final static int ACTIVITY_NUM = 0;
+    private static final String TAG = "SearchActivity";
+    private Context mContext = ShareActivity.this;
+    private final static int ACTIVITY_NUM = 3;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
+        Log.d(TAG, "onCreate: started");
         setupBottomNavigationView();
     }
 
