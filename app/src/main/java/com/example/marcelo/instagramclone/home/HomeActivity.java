@@ -13,6 +13,8 @@ import com.example.marcelo.instagramclone.R;
 import com.example.marcelo.instagramclone.Utils.BottomNavigationViewAdapter;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
+import java.util.Objects;
+
 public class HomeActivity extends AppCompatActivity {
 
     private static final String TAG = "HomeActivity";
@@ -37,9 +39,9 @@ public class HomeActivity extends AppCompatActivity {
 
         TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_camera);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_instagram);
-        tabLayout.getTabAt(2).setIcon(R.drawable.ic_arrow);
+        Objects.requireNonNull(tabLayout.getTabAt(0)).setIcon(R.drawable.ic_camera);
+        Objects.requireNonNull(tabLayout.getTabAt(1)).setText("instagram");
+        Objects.requireNonNull(tabLayout.getTabAt(2)).setIcon(R.drawable.ic_arrow);
 
     }
 
