@@ -4,13 +4,12 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/white_grey_border_botton">
+        android:background="@drawable/white_grey_border_bottom">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/profileToolBar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white">
+            android:layout_height="match_parent">
 
             <RelativeLayout
                 android:layout_width="match_parent"

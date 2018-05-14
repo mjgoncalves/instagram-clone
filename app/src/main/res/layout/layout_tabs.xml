@@ -15,7 +15,7 @@
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/white_grey_border_botton"/>
+                android:background="@drawable/white_grey_border_bottom"/>
         </android.support.design.widget.AppBarLayout>
     </RelativeLayout>
 </merge>
