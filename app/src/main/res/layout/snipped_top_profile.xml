@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:tools="http://schemas.android.com/tools"
+<merge
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp">
 
         <TextView
@@ -16,47 +16,43 @@
             android:text="345"
             android:textColor="@color/black"
             android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/posts"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/posts"
             android:layout_width="53dp"
-            android:layout_height="28dp"
-            android:layout_marginBottom="480dp"
-            android:layout_marginEnd="116dp"
+            android:layout_height="25dp"
             android:gravity="center_horizontal"
             android:text="posts"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView5"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtViewPosts" />
 
         <TextView
             android:id="@+id/txtViewFollower"
             android:layout_width="53dp"
             android:layout_height="28dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="108dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:gravity="center_horizontal"
             android:text="437"
             android:textColor="@color/black"
             android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView5"
             app:layout_constraintEnd_toStartOf="@+id/txtViewFollowing"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.008" />
+            app:layout_constraintStart_toEndOf="@+id/txtViewPosts"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="24dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="104dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:gravity="center_horizontal"
             android:text="Followers"
-            app:layout_constraintBottom_toTopOf="@+id/textEditProfile"
-            app:layout_constraintEnd_toStartOf="@+id/textView7" />
+            app:layout_constraintEnd_toStartOf="@+id/textView7"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toEndOf="@+id/posts"
+            app:layout_constraintTop_toBottomOf="@+id/txtViewFollower" />
 
         <TextView
             android:id="@+id/txtViewFollowing"
@@ -72,7 +68,7 @@
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
-            android:layout_height="28dp"
+            android:layout_height="22dp"
             android:gravity="center_horizontal"
             android:text="following"
             app:layout_constraintEnd_toEndOf="parent"
@@ -80,11 +76,12 @@
 
         <TextView
             android:id="@+id/textEditProfile"
-            android:layout_width="145dp"
+            android:layout_width="192dp"
             android:layout_height="30dp"
-            android:layout_marginBottom="448dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/grey_border"
             android:gravity="center_horizontal"
             android:text="edit your profile"
@@ -92,8 +89,9 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5"
+            app:layout_constraintVertical_bias="0.006" />
     </android.support.constraint.ConstraintLayout>
 
 </merge>
