@@ -20,6 +20,7 @@
         <activity android:name=".profile.ProfileActivity" />
         <activity android:name=".likes.LikesActivity" />
         <activity android:name=".share.ShareActivity" />
+        <activity android:name=".profile.AccountSettingsActivity"></activity>
     </application>
 
 </manifest>

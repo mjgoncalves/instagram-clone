@@ -1,6 +1,7 @@
 package com.example.marcelo.instagramclone.profile;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.marcelo.instagramclone.R;
 import com.example.marcelo.instagramclone.Utils.BottomNavigationViewAdapter;
@@ -25,7 +28,23 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         Log.d(TAG, "onCreate: started");
         setupBottomNavigationView();
+        setupToolbar();
 
+    }
+
+    private void setupToolbar(){
+
+        Toolbar toolbar = findViewById(R.id.profileToolBar);
+        setSupportActionBar(toolbar);
+        ImageView profileMenu = findViewById(R.id.profile_menu_settings);
+        profileMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: Navigating to account settings");
+                Intent intent = new Intent(mContext, AccountSettingsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void setupBottomNavigationView(){
