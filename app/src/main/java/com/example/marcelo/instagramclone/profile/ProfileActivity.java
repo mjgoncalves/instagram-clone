@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import com.example.marcelo.instagramclone.R;
 import com.example.marcelo.instagramclone.Utils.BottomNavigationViewAdapter;
@@ -26,6 +27,10 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        ProgressBar progressBar = findViewById(R.id.progress_bar);
+        progressBar.setVisibility(View.GONE);
+
         Log.d(TAG, "onCreate: started");
         setupBottomNavigationView();
         setupToolbar();

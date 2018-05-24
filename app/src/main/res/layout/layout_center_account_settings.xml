@@ -6,15 +6,15 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp">
 
         <TextView
             android:id="@+id/text_settings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Account Settings"
+            android:text="account settings"
             android:textSize="35sp"
-            android:gravity="center"
             android:textColor="@color/black"
             android:background="@drawable/border_account_settings"/>
 

@@ -11,6 +11,7 @@ import android.view.MenuItem;
 
 import com.example.marcelo.instagramclone.R;
 import com.example.marcelo.instagramclone.Utils.BottomNavigationViewAdapter;
+import com.example.marcelo.instagramclone.Utils.SectionsPagerAdapter;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 import java.util.Objects;

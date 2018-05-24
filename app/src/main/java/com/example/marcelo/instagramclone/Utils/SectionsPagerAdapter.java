@@ -1,4 +1,4 @@
-package com.example.marcelo.instagramclone.home;
+package com.example.marcelo.instagramclone.Utils;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,7 +11,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     private static final String TAG = "SectionsPagerAdapter";
     private final List<Fragment> mFragmentList = new ArrayList<>();
-    SectionsPagerAdapter(FragmentManager fm) {
+    public SectionsPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 

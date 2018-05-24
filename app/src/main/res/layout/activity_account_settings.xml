@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".profile.AccountSettingsActivity">
 
+    <include layout="@layout/layout_viewpager"/>
+
     <RelativeLayout
         android:id="@+id/rellayout1"
         android:layout_width="match_parent"
