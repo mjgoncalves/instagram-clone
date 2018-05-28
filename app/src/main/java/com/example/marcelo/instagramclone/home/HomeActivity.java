@@ -12,7 +12,9 @@ import android.view.MenuItem;
 import com.example.marcelo.instagramclone.R;
 import com.example.marcelo.instagramclone.Utils.BottomNavigationViewAdapter;
 import com.example.marcelo.instagramclone.Utils.SectionsPagerAdapter;
+import com.example.marcelo.instagramclone.Utils.UniversalImageLoader;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.Objects;
 
@@ -25,8 +27,10 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        initImageLoader();
         setupBottomNavigationView();
         setupViewPager();
+
     }
 
     /* Responsible for adding the three fragment: camera, home, messages */
@@ -57,5 +61,11 @@ public class HomeActivity extends AppCompatActivity {
         Menu menu = bottomNavigationViewEx.getMenu();
         MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
         menuItem.setChecked(true);
+    }
+
+    private void initImageLoader(){
+
+        UniversalImageLoader universalImageLoader = new  UniversalImageLoader(mContext);
+        ImageLoader.getInstance().init(universalImageLoader.getConfig());
     }
 }

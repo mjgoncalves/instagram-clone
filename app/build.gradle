@@ -28,6 +28,11 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     // design library for coordinator e toobars
     implementation 'com.android.support:design:27.1.1'
+    // bottomnavigationviewex
     implementation 'com.github.ittianyu:BottomNavigationViewEx:1.2.4'
+    // Circle imageview
     implementation 'de.hdodenhof:circleimageview:2.2.0'
+
+    // Universal image loader
+    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
 }

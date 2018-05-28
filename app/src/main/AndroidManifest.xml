@@ -22,5 +22,6 @@
         <activity android:name=".share.ShareActivity" />
         <activity android:name=".profile.AccountSettingsActivity"></activity>
     </application>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>

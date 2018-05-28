@@ -5,6 +5,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,13 +15,16 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.example.marcelo.instagramclone.R;
+import com.example.marcelo.instagramclone.Utils.BottomNavigationViewAdapter;
 import com.example.marcelo.instagramclone.Utils.SectionsStatePagerAdapter;
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AccountSettingsActivity extends AppCompatActivity {
     private static final String TAG = "AccountSettingsActivity";
+    private final static int ACTIVITY_NUM = 2;
     private Context mContext;
     private SectionsStatePagerAdapter pagerAdaper;
     private ViewPager mViewPager;
@@ -32,17 +37,19 @@ public class AccountSettingsActivity extends AppCompatActivity {
         mContext = AccountSettingsActivity.this;
         setContentView(R.layout.activity_account_settings);
 
+        setupBottomNavigationView();
+
         mViewPager = findViewById(R.id.container);
         mRelativLayout = findViewById(R.id.rellayout1);
         setupListView();
         setupFragments();
 
-        // setting up the backarrou for navigating back to profile activity
+        // setting up the backarrow for navigating back to profile activity
         ImageView backArrow = findViewById(R.id.backarrow);
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "onClick: navigating back to the prifile activity");
+                Log.d(TAG, "onClick: navigating back to the profile activity");
                 finish();
             }
         });
@@ -78,5 +85,16 @@ public class AccountSettingsActivity extends AppCompatActivity {
                 setViewPager(position);
             }
         });
+    }
+
+    public void setupBottomNavigationView(){
+
+        Log.d(TAG, "setupBottomNavigationView: Starting BottonNavigationViewEx");
+        BottomNavigationViewEx bottomNavigationViewEx = findViewById(R.id.botton_navView);
+        BottomNavigationViewAdapter.adaptBottomNavigationView(bottomNavigationViewEx);
+        BottomNavigationViewAdapter.enableNavigations(mContext, bottomNavigationViewEx);
+        Menu menu = bottomNavigationViewEx.getMenu();
+        MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
+        menuItem.setChecked(true);
     }
 }
