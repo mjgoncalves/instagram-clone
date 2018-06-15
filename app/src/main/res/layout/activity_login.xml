@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Utils.LoginActivity">
+
+    <LinearLayout
+        android:id="@+id/linlayout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="55dp"
+        android:paddingEnd="25dp"
+        android:paddingStart="25dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:src="@drawable/instagramlogo"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="25dp"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/txt_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="@string/E_mail"/>
+            </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/txt_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="@string/Password"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/Login"
+            android:padding="12dp"
+            android:background="@drawable/white_rounded_border"/>
+
+        <TextView
+            android:id="@+id/txt_no_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:gravity="center"
+            android:text="@string/no_account"
+            android:textSize="16sp"
+            android:textColor="@color/link"/>
+
+    </LinearLayout>
+    <ProgressBar
+        android:id="@+id/loginProgressBar"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_below="@+id/linlayout"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/please_wait"
+        android:gravity="center"
+        android:layout_alignBottom="@+id/loginProgressBar"
+        android:layout_alignEnd="@+id/loginProgressBar"
+        android:layout_alignStart="@+id/loginProgressBar"/>
+
+</RelativeLayout>
