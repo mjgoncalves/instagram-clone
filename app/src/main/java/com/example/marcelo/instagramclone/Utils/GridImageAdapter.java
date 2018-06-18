@@ -85,9 +85,7 @@ public class GridImageAdapter extends ArrayAdapter<String>{
 
                     viewHolder.progressBar.setVisibility(View.GONE);
                 }
-
             }
-
             @Override
             public void onLoadingCancelled(String imageUri, View view) {
                 if (viewHolder.progressBar != null){

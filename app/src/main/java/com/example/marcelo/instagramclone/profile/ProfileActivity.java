@@ -71,7 +71,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void setupActivityWidgets(){
 
-        Log.d(TAG, "setupActivityWidgets: Setting up profileactivity widgets!");
+        Log.d(TAG, "setupActivityWidgets: Setting up profileActivity widgets!");
         progressBar = findViewById(R.id.progress_bar);
         progressBar.setVisibility(View.GONE);
         profilePhoto = findViewById(R.id.profile_photo);
@@ -87,7 +87,6 @@ public class ProfileActivity extends AppCompatActivity {
         int gridWidth = getResources().getDisplayMetrics().widthPixels;
         int imageWidth = gridWidth/GRID_COL_NUM;
         gridView.setColumnWidth(imageWidth);
-
 
     }
 
@@ -108,7 +107,6 @@ public class ProfileActivity extends AppCompatActivity {
         imgURLs.add("https://abrilviagemeturismo.files.wordpress.com/2016/12/11-120241176.jpg?quality=70&strip=info&w=680&h=453&crop=1");
         imgURLs.add("https://cdn.cheapoguides.com/wp-content/uploads/sites/3/2017/09/Otagi-Nenbutsu-ji-Shrine.jpg");
         setupImageGrid(imgURLs);
-
 
     }
 

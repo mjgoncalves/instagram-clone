@@ -23,7 +23,8 @@
         <activity android:name=".likes.LikesActivity" />
         <activity android:name=".share.ShareActivity" />
         <activity android:name=".profile.AccountSettingsActivity" />
-        <activity android:name=".Utils.LoginActivity"></activity>
+        <activity android:name=".login.LoginActivity" />
+        <activity android:name=".login.RegisterActivity"></activity>
     </application>
 
 </manifest>
