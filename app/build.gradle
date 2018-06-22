@@ -39,7 +39,7 @@ dependencies {
     //firebase dependency
     implementation 'com.google.firebase:firebase-core:16.0.1'
     //firebase auth
-    implementation 'com.google.firebase:firebase-auth:16.0.2'
+    implementation 'com.google.firebase:firebase-auth:16.0.1'
 
 
 }

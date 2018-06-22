@@ -77,20 +77,20 @@ public class HomeActivity extends AppCompatActivity {
         ImageLoader.getInstance().init(universalImageLoader.getConfig());
     }
 
-    /**
-     * Checks to see if the @param user is logged in
-     */
-    private void checkCurrentUser(FirebaseUser user){
-        Log.d(TAG, "checkCurrentUser: Checking if the user is logged in!");
-        if (user == null){
-            
-            Intent intent = new Intent(mContext, LoginActivity.class);
-            startActivity(intent);
-                    
-        }
-    }
 
    // ************************************* FIREBASE *************************************************
+
+    /**
+     * Checks to see if the @param user is logged in
+     */private void checkCurrentUser(FirebaseUser user){
+        Log.d(TAG, "checkCurrentUser: Checking if the user is logged in!");
+        if (user == null){
+
+            Intent intent = new Intent(mContext, LoginActivity.class);
+            startActivity(intent);
+
+        }
+    }
 
     private void setupFirebaseAuth(){
 
@@ -100,7 +100,6 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                checkCurrentUser(user);
                 if (user != null){
                     Log.d(TAG, "onAuthStateChanged: user sign_in" + user.getUid());
 
@@ -115,6 +114,8 @@ public class HomeActivity extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         mAuth.addAuthStateListener(mAuthStateListener);
+        checkCurrentUser(mAuth.getCurrentUser());
+
     }
 
     @Override
