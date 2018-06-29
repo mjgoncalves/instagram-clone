@@ -96,7 +96,6 @@ public class LoginActivity extends AppCompatActivity {
                                         pleaseWait.setVisibility(View.GONE);
 
                                         FirebaseUser user = mAuth.getCurrentUser();
-                                        updateUI(user);
 
                                         Toast.makeText(LoginActivity.this, getString(R.string.auth_success),
                                                 Toast.LENGTH_SHORT).show();
@@ -111,7 +110,6 @@ public class LoginActivity extends AppCompatActivity {
 
                                         Toast.makeText(LoginActivity.this, getString(R.string.auth_failed),
                                                 Toast.LENGTH_SHORT).show();
-                                        updateUI(null);
                                     }
 
                                     // ...
@@ -121,11 +119,34 @@ public class LoginActivity extends AppCompatActivity {
             }
 
         });
-    }
 
-    private void updateUI(FirebaseUser user) {
+        /**
+         * Navigato to the HomeActivity if the user is logged in!!
+         */
+        if (mAuth.getCurrentUser() != null){
+            Log.d(TAG, "init: Navigating to the registar screen!");
+            Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
-        if (user != null){
+        TextView linkSignup = findViewById(R.id.linkSignup);
+        linkSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: Navigating to  register screen!");
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
+        /**
+         *  if the user is logged in then navigate to HomeActivity and finishes the current one
+         *
+         */
+        if ( mAuth.getCurrentUser() != null){
             Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
             startActivity(intent);
             finish();
@@ -160,7 +181,7 @@ public class LoginActivity extends AppCompatActivity {
     public void onStop(){
         super.onStop();
         if (mAuthStateListener != null){
-            mAuth.addAuthStateListener(mAuthStateListener);
+            mAuth.removeAuthStateListener(mAuthStateListener);
         }
     }
 }

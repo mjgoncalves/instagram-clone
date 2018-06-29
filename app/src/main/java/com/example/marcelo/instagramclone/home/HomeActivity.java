@@ -33,10 +33,12 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
         setupFirebaseAuth();
         initImageLoader();
         setupBottomNavigationView();
         setupViewPager();
+        //mAuth.signOut();
 
 
     }
@@ -65,6 +67,8 @@ public class HomeActivity extends AppCompatActivity {
         Log.d(TAG, "setupBottomNavigationView: Starting BottonNavigationViewEx");
         BottomNavigationViewEx bottomNavigationViewEx = findViewById(R.id.botton_navView);
         BottomNavigationViewAdapter.adaptBottomNavigationView(bottomNavigationViewEx);
+
+
         BottomNavigationViewAdapter.enableNavigations(mContext, bottomNavigationViewEx);
         Menu menu = bottomNavigationViewEx.getMenu();
         MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
@@ -78,7 +82,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
-   // ************************************* FIREBASE *************************************************
+   //************************************* FIREBASE ************************************************
 
     /**
      * Checks to see if the @param user is logged in
@@ -100,6 +104,8 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
+                checkCurrentUser(mAuth.getCurrentUser());
+
                 if (user != null){
                     Log.d(TAG, "onAuthStateChanged: user sign_in" + user.getUid());
 
@@ -114,7 +120,6 @@ public class HomeActivity extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         mAuth.addAuthStateListener(mAuthStateListener);
-        checkCurrentUser(mAuth.getCurrentUser());
 
     }
 
@@ -122,8 +127,7 @@ public class HomeActivity extends AppCompatActivity {
     public void onStop(){
         super.onStop();
         if (mAuthStateListener != null){
-            mAuth.addAuthStateListener(mAuthStateListener);
+            mAuth.removeAuthStateListener(mAuthStateListener);
         }
     }
-
 }

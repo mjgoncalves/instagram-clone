@@ -92,9 +92,7 @@ public class GridImageAdapter extends ArrayAdapter<String>{
 
                     viewHolder.progressBar.setVisibility(View.GONE);
                 }
-
             }
-
         });
 
         return convertView;

@@ -16,5 +16,6 @@
     <string name="register">register</string>
     <string name="auth_failed">Authentication failed.</string>
     <string name="auth_success">authentication successful</string>
+    <string name="emptyField">All the fields must be filled out!</string>
 
 </resources>
