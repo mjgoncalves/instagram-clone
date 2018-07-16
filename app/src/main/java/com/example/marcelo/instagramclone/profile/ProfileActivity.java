@@ -27,7 +27,6 @@ public class ProfileActivity extends AppCompatActivity {
     private static final String TAG = "SearchActivity";
     private Context mContext = ProfileActivity.this;
     private final static int ACTIVITY_NUM = 2;
-    private final int GRID_COL_NUM = 3;
     private ImageView profilePhoto;
     private ProgressBar progressBar;
     private GridView gridView;
@@ -85,6 +84,7 @@ public class ProfileActivity extends AppCompatActivity {
         gridView.setAdapter(adapter);
 
         int gridWidth = getResources().getDisplayMetrics().widthPixels;
+        final int GRID_COL_NUM = 3;
         int imageWidth = gridWidth/GRID_COL_NUM;
         gridView.setColumnWidth(imageWidth);
 

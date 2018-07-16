@@ -17,5 +17,8 @@
     <string name="auth_failed">Authentication failed.</string>
     <string name="auth_success">authentication successful</string>
     <string name="emptyField">All the fields must be filled out!</string>
+    <string name="dbase_user">user</string>
+    <string name="dbase_account_settings">user_account_settings</string>
+    <string name="signup_success">Sign up successful. Sending verification e-mail!</string>
 
 </resources>

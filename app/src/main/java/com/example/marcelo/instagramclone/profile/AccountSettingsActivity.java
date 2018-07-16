@@ -76,7 +76,7 @@ public class AccountSettingsActivity extends AppCompatActivity {
         listOptions.add(getString(R.string.edit_profile_fragment));
         listOptions.add(getString(R.string.sign_out_fragment));
 
-        ArrayAdapter adapter = new ArrayAdapter(mContext, android.R.layout.simple_expandable_list_item_1, listOptions);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(mContext, android.R.layout.simple_expandable_list_item_1, listOptions);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

@@ -121,10 +121,10 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         /**
-         * Navigato to the HomeActivity if the user is logged in!!
+         * Navigate to the HomeActivity if the user is logged in!!
          */
         if (mAuth.getCurrentUser() != null){
-            Log.d(TAG, "init: Navigating to the registar screen!");
+            Log.d(TAG, "init: Navigating to the register screen!");
             Intent intent = new Intent(this, HomeActivity.class);
             startActivity(intent);
             finish();
