@@ -25,5 +25,6 @@
     <string name="signout_confirmation">Are you sure you want to sign out?</string>
     <string name="sign_out">sign out</string>
     <string name="signing_out">Signing out...</string>
+    <string name="fragment_profile">Profile</string>
 
 </resources>
