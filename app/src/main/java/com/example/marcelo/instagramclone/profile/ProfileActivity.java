@@ -58,20 +58,7 @@ public class ProfileActivity extends AppCompatActivity {
         transaction.commit();
     }
 
-//    private void setupToolbar(){
-//
-//        Toolbar toolbar = findViewById(R.id.profileToolBar);
-//        setSupportActionBar(toolbar);
-//        ImageView profileMenu = findViewById(R.id.profile_menu_settings);
-//        profileMenu.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Log.d(TAG, "onClick: Navigating to account settings");
-//                Intent intent = new Intent(mContext, AccountSettingsActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//    }
+
 //
 //    private void setProfileImage(){
 //        Log.d(TAG, "setProfileImage: Setting up profile photo!");
@@ -123,15 +110,6 @@ public class ProfileActivity extends AppCompatActivity {
 //
 //    }
 //
-//    public void setupBottomNavigationView(){
-//
-//        Log.d(TAG, "setupBottomNavigationView: Starting BottonNavigationViewEx");
-//        BottomNavigationViewEx bottomNavigationViewEx = findViewById(R.id.botton_navView);
-//        BottomNavigationViewAdapter.adaptBottomNavigationView(bottomNavigationViewEx);
-//        BottomNavigationViewAdapter.enableNavigations(mContext, bottomNavigationViewEx);
-//        Menu menu = bottomNavigationViewEx.getMenu();
-//        MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
-//        menuItem.setChecked(true);
-//    }
+
 
 }
