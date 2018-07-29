@@ -1,22 +1,22 @@
 package com.example.marcelo.instagramclone.Models;
 
-public class User {
+public class Users {
 
-    private static final String TAG = "User";
+    private static final String TAG = "Users";
 
     private String user_id;
     private long phone_number;
     private String email;
     private String username;
 
-    public User(String user_id, long phone_number, String email, String username) {
+    public Users(String user_id, long phone_number, String email, String username) {
         this.user_id = user_id;
         this.phone_number = phone_number;
         this.email = email;
         this.username = username;
     }
 
-    public User() {
+    public Users() {
 
 
     }
@@ -55,7 +55,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Users{" +
                 "user_id='" + user_id + '\'' +
                 ", phone_number='" + phone_number + '\'' +
                 ", email='" + email + '\'' +

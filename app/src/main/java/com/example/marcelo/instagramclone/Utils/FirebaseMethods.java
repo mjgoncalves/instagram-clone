@@ -5,13 +5,13 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.marcelo.instagramclone.Models.User;
+import com.example.marcelo.instagramclone.Models.Users;
+import com.example.marcelo.instagramclone.Models.UserAccountSettings;
 import com.example.marcelo.instagramclone.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -23,7 +23,6 @@ public class FirebaseMethods {
     private static final String TAG = "FirebaseMethods";
     private Context context;
     private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthStateListener;
     private String userID;
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference myRef;
@@ -74,13 +73,13 @@ public class FirebaseMethods {
 
     public boolean checkIfUsernameExists(String username, DataSnapshot dataSnapshot){
         Log.d(TAG, "checkIfUsernameExists: Checks if " + username + " already exists!");
-        User user = new User();
-        for (DataSnapshot ds: dataSnapshot.getChildren()){
+        Users users = new Users();
+        for (DataSnapshot ds: dataSnapshot.child(userID).getChildren()){
             Log.d(TAG, "checkIfUsernameExists: datasnapshot: " + ds);
-            user.setUsername(Objects.requireNonNull(ds.getValue(User.class)).getUsername());
+            users.setUsername(ds.getValue(Users.class).getUsername());
             
-            if (StringManipulation.expandUsername(user.getUsername()).equals(username)){
-                Log.d(TAG, "checkIfUsernameExists: Found a match!");
+            if (StringManipulation.condenseUsername(users.getUsername()).equals(username)){
+                Log.d(TAG, "checkIfUsernameExists: Found a match:" + users.getUsername());
                 return true;
 
             }
@@ -89,16 +88,16 @@ public class FirebaseMethods {
         return false;
     }
 
-    public void AddNewUser(String email, String username, String discription, String website, String profile_photo){
+    public void AddNewUser(String email, String username, String description, String website, String profile_photo){
 
-        User user = new User(userID, 1, email, StringManipulation.condenseUsername(username));
+        Users users = new Users(userID, 1, email, StringManipulation.condenseUsername(username));
         myRef.child(context.getString(R.string.dbase_user))
         .child(userID)
-        .setValue(user);
+        .setValue(users);
 
         UserAccountSettings settings = new UserAccountSettings(
 
-                discription,
+                description,
                 username,
                 0,
                 0,

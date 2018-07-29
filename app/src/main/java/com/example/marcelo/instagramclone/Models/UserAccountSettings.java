@@ -1,8 +1,8 @@
-package com.example.marcelo.instagramclone.Utils;
+package com.example.marcelo.instagramclone.Models;
 
 public class UserAccountSettings {
 
-    private String discription;
+    private String description;
     private String display_name;
     private long followers;
     private long following;
@@ -13,7 +13,7 @@ public class UserAccountSettings {
 
     public UserAccountSettings(String discription, String display_name, long followers, long following, long posts,
                                String profile_photo, String username, String website) {
-        this.discription = discription;
+        this.description = discription;
         this.display_name = display_name;
         this.followers = followers;
         this.following = following;
@@ -28,11 +28,11 @@ public class UserAccountSettings {
     }
 
     public String getDiscription() {
-        return discription;
+        return description;
     }
 
     public void setDiscription(String discription) {
-        this.discription = discription;
+        this.description = discription;
     }
 
     public String getDisplay_name() {
@@ -94,7 +94,7 @@ public class UserAccountSettings {
     @Override
     public String toString() {
         return "UserAccountSettings{" +
-                "discription='" + discription + '\'' +
+                "discription='" + description + '\'' +
                 ", display_name='" + display_name + '\'' +
                 ", followers=" + followers +
                 ", following=" + following +

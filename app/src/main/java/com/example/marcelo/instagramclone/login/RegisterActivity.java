@@ -26,7 +26,7 @@ public class RegisterActivity extends AppCompatActivity {
     private static final String TAG = "RegisterActivity";
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
-    private String email, password, username, append;
+    private String email, password, username;
     private EditText mEmail, mPassword, mUsername;
     private ProgressBar mProgressBar;
     private TextView loadingPleaseWait;
@@ -34,6 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
     private FirebaseMethods firebaseMethods;
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference myRef;
+    private String append = "";
 
 
     @Override
@@ -118,7 +119,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Log.d(TAG, "onAuthStateChanged: user sign_in" + user.getUid());
                     myRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                             // Make sure that the user_name isn't already in use
                             if (firebaseMethods.checkIfUsernameExists(username, dataSnapshot)){
