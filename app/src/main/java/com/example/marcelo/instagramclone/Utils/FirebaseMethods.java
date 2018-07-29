@@ -12,6 +12,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -61,7 +62,8 @@ public class FirebaseMethods {
 
 
                         } else if (task.isSuccessful()){
-                            // Sign in success, update UI with the signed-in user's information
+                            // send verification email
+                            sendVerificationEmail();
                             userID = Objects.requireNonNull(mAuth.getCurrentUser()).getUid();
                             Log.d(TAG, "createUserWithEmail:success " + userID);
 
@@ -76,7 +78,7 @@ public class FirebaseMethods {
         Users users = new Users();
         for (DataSnapshot ds: dataSnapshot.child(userID).getChildren()){
             Log.d(TAG, "checkIfUsernameExists: datasnapshot: " + ds);
-            users.setUsername(ds.getValue(Users.class).getUsername());
+            users.setUsername(Objects.requireNonNull(ds.getValue(Users.class)).getUsername());
             
             if (StringManipulation.condenseUsername(users.getUsername()).equals(username)){
                 Log.d(TAG, "checkIfUsernameExists: Found a match:" + users.getUsername());
@@ -88,6 +90,14 @@ public class FirebaseMethods {
         return false;
     }
 
+    /**
+     * Adding information to the users and user_account_settings nodes
+     * @param email
+     * @param username
+     * @param description
+     * @param website
+     * @param profile_photo
+     */
     public void AddNewUser(String email, String username, String description, String website, String profile_photo){
 
         Users users = new Users(userID, 1, email, StringManipulation.condenseUsername(username));
@@ -110,6 +120,29 @@ public class FirebaseMethods {
         myRef.child(context.getString(R.string.dbase_account_settings))
                 .child(userID)
                 .setValue(settings);
+    }
+
+    public void sendVerificationEmail(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null){
+
+            user.sendEmailVerification()
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()){
+
+                            }else {
+
+                                //Toast.makeText(context, getString(R.string.emailNotSent), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "Verification email couldn't be sent!", Toast.LENGTH_SHORT).show();
+
+
+                            }
+
+                        }
+                    });
+        }
     }
 }
 

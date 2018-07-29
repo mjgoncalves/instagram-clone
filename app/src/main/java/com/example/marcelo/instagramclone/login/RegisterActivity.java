@@ -22,6 +22,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Objects;
+
 public class RegisterActivity extends AppCompatActivity {
     private static final String TAG = "RegisterActivity";
     private FirebaseAuth mAuth;
@@ -124,7 +126,7 @@ public class RegisterActivity extends AppCompatActivity {
                             // Make sure that the user_name isn't already in use
                             if (firebaseMethods.checkIfUsernameExists(username, dataSnapshot)){
 
-                                append = myRef.push().getKey().substring(3, 10);
+                                append = Objects.requireNonNull(myRef.push().getKey()).substring(3, 10);
                                 Log.d(TAG, "onDataChange: Username already exists. Appending random string to name :" + append + "!");
 
 
@@ -136,16 +138,19 @@ public class RegisterActivity extends AppCompatActivity {
 
                             firebaseMethods.AddNewUser(email, username, "", "", "");
                             Toast.makeText(RegisterActivity.this,getString(R.string.signup_success), Toast.LENGTH_SHORT).show();
+                            mAuth.signOut();
 
                             // Add user_account_setting to the database
 
                         }
 
                         @Override
-                        public void onCancelled(DatabaseError databaseError) {
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
 
                         }
                     });
+
+                    finish();
 
                 }else {
                     Log.d(TAG, "onAuthStateChanged: user sign_out");

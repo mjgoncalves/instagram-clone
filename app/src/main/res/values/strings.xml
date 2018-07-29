@@ -20,5 +20,7 @@
     <string name="dbase_user">users</string>
     <string name="dbase_account_settings">user_account_settings</string>
     <string name="signup_success">Sign up successful. Sending verification e-mail!</string>
+    <string name="emailNotSent">Verification  email couldn\'t be sent!</string>
+    <string name="emailNotVefied">Email ist not verified! Chech your email inbox!</string>
 
 </resources>
