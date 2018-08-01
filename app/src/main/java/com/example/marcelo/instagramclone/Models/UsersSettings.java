@@ -1,18 +1,15 @@
-package com.example.marcelo.instagramclone.Utils;
+package com.example.marcelo.instagramclone.Models;
 
-import com.example.marcelo.instagramclone.Models.UserAccountSettings;
-import com.example.marcelo.instagramclone.Models.Users;
-
-public class UserSettings {
+public class UsersSettings {
     private Users users;
-    private UserAccountSettings settings;
+    private UsersAccountSettings usersAccountSettings;
 
-    public UserSettings(Users users, UserAccountSettings settings) {
+    public UsersSettings(Users users, UsersAccountSettings usersAccountSettings) {
         this.users = users;
-        this.settings = settings;
+        this.usersAccountSettings = usersAccountSettings;
     }
 
-    public UserSettings() {
+    public UsersSettings() {
 
     }
 
@@ -24,19 +21,19 @@ public class UserSettings {
         this.users = users;
     }
 
-    public UserAccountSettings getSettings() {
-        return settings;
+    public UsersAccountSettings getUsersAccountSettings() {
+        return usersAccountSettings;
     }
 
-    public void setSettings(UserAccountSettings settings) {
-        this.settings = settings;
+    public void setUsersAccountSettings(UsersAccountSettings usersAccountSettings) {
+        this.usersAccountSettings = usersAccountSettings;
     }
 
     @Override
     public String toString() {
-        return "UserSettings{" +
+        return "UsersSettings{" +
                 "users=" + users +
-                ", settings=" + settings +
+                ", usersAccountSettings=" + usersAccountSettings +
                 '}';
     }
 }

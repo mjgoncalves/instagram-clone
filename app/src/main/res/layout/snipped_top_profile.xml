@@ -9,7 +9,7 @@
         android:layout_marginTop="30dp">
 
         <TextView
-            android:id="@+id/txtViewPosts"
+            android:id="@+id/posts"
             android:layout_width="53dp"
             android:layout_height="28dp"
             android:gravity="center_horizontal"
@@ -19,13 +19,12 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/posts"
             android:layout_width="53dp"
             android:layout_height="25dp"
             android:gravity="center_horizontal"
             android:text="posts"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtViewPosts" />
+            app:layout_constraintTop_toBottomOf="@+id/posts" />
 
         <TextView
             android:id="@+id/txtViewFollower"
@@ -38,7 +37,7 @@
             android:textColor="@color/black"
             android:textSize="18sp"
             app:layout_constraintEnd_toStartOf="@+id/txtViewFollowing"
-            app:layout_constraintStart_toEndOf="@+id/txtViewPosts"
+            app:layout_constraintStart_toEndOf="@+id/posts"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
