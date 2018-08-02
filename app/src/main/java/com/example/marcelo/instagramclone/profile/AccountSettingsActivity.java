@@ -1,6 +1,8 @@
 package com.example.marcelo.instagramclone.profile;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,7 +18,15 @@ import android.widget.RelativeLayout;
 
 import com.example.marcelo.instagramclone.R;
 import com.example.marcelo.instagramclone.Utils.BottomNavigationViewAdapter;
+import com.example.marcelo.instagramclone.Utils.FirebaseMethods;
 import com.example.marcelo.instagramclone.Utils.SectionsStatePagerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 import java.util.ArrayList;
@@ -43,6 +53,7 @@ public class AccountSettingsActivity extends AppCompatActivity {
         mRelativLayout = findViewById(R.id.rellayout1);
         setupListView();
         setupFragments();
+        getIncomingIntent();
 
         // setting up the backarrow for navigating back to profile activity
         ImageView backArrow = findViewById(R.id.backarrow);
@@ -55,6 +66,13 @@ public class AccountSettingsActivity extends AppCompatActivity {
         });
     }
 
+    private void getIncomingIntent(){
+        Log.d(TAG, "getIncomingActivity: received incomming intent from " + getString(R.string.profile_activity));
+        Intent intent = getIntent();
+        if (intent.hasExtra(getString(R.string.calling_activity))){
+            setViewPager(pagerAdaper.getFragmentNumber(getString(R.string.edit_profile_fragment)));
+        }
+    }
     private void setupFragments() {
 
         pagerAdaper = new SectionsStatePagerAdapter(getSupportFragmentManager());

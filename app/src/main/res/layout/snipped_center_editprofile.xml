@@ -49,7 +49,7 @@
                     android:src="@drawable/ic_username" />
 
                 <EditText
-                    android:id="@+id/user_name"
+                    android:id="@+id/username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -133,13 +133,13 @@
                     android:src="@drawable/ic_discription" />
 
                 <EditText
-                    android:id="@+id/discription"
+                    android:id="@+id/description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="40dp"
                     android:background="@null"
-                    android:hint="discription"
+                    android:hint="description"
                     android:inputType="textNoSuggestions" />
 
             </RelativeLayout>

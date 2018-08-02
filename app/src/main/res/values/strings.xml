@@ -26,5 +26,7 @@
     <string name="sign_out">sign out</string>
     <string name="signing_out">Signing out...</string>
     <string name="fragment_profile">Profile</string>
+    <string name="calling_activity">calling_activity</string>
+    <string name="profile_activity">Profile Activity</string>
 
 </resources>

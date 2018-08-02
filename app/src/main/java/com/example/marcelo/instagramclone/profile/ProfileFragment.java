@@ -41,7 +41,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ProfileFragment extends Fragment {
     private static final String TAG = "ProfileFragment";
     private final static int ACTIVITY_NUM = 2;
-    private TextView mPosts, mFollowing, mFollowers, mDisplayName, mUsername, mWebsite, mDescription;
+    private TextView editProfile, mPosts, mFollowing, mFollowers, mDisplayName, mUsername, mWebsite, mDescription;
     private ProgressBar mProgressBar;
     private CircleImageView mProfilePhoto;
     private GridView mGridView;
@@ -66,10 +66,12 @@ public class ProfileFragment extends Fragment {
         setupBottomNavigationView();
         setupToolbar();
         setupFirebaseAuth();
+        navigateToEditProfile();
         return view;
     }
 
     private void setupWidgets() {
+        mContext = getActivity();
         mProfilePhoto = view.findViewById(R.id.profile_photo);
         mDisplayName = view.findViewById(R.id.display_name);
         mUsername = view.findViewById(R.id.username);
@@ -84,7 +86,8 @@ public class ProfileFragment extends Fragment {
         profileMenu = view.findViewById(R.id.profile_menu_settings);
         mViewEx = view.findViewById(R.id.botton_navView);
         mToolbar = view.findViewById(R.id.profileToolBar);
-        mContext = getActivity();
+        editProfile = view.findViewById(R.id.textEditProfile);
+
 
 
     }
@@ -125,6 +128,19 @@ public class ProfileFragment extends Fragment {
         mPosts.setText(String.valueOf(settings.getPosts()));
         mFollowing.setText(String.valueOf(settings.getFollowing()));
         mFollowers.setText(String.valueOf(settings.getFollowers()));
+    }
+
+    private void navigateToEditProfile(){
+        Log.d(TAG, "navigateToEditProfile: Navigating to " + mContext.getString(R.string.edit_profile_fragment));
+        editProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, AccountSettingsActivity.class);
+                intent.putExtra(getString(R.string.calling_activity), getString(R.string.profile_activity));
+                startActivity(intent);
+            }
+        });
+        
     }
 
     //************************************* FIREBASE ************************************************
