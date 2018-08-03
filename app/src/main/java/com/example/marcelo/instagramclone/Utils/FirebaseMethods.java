@@ -74,23 +74,6 @@ public class FirebaseMethods {
                 });
     }
 
-    public boolean checkIfUsernameExists(String username, DataSnapshot dataSnapshot){
-        Log.d(TAG, "checkIfUsernameExists: Checks if " + username + " already exists!");
-        Users users = new Users();
-        for (DataSnapshot ds: dataSnapshot.child(userID).getChildren()){
-            Log.d(TAG, "checkIfUsernameExists: datasnapshot: " + ds);
-            users.setUsername(Objects.requireNonNull(ds.getValue(Users.class)).getUsername());
-            
-            if (StringManipulation.condenseUsername(users.getUsername()).equals(username)){
-                Log.d(TAG, "checkIfUsernameExists: Found a match:" + users.getUsername());
-                return true;
-
-            }
-        }
-
-        return false;
-    }
-
     /**
      * Adding information to the users and user_account_settings nodes
      * @param email
@@ -256,6 +239,19 @@ public class FirebaseMethods {
         }
 
         return new UsersSettings(users, usersAccountSettings);
+    }
+
+    public void updateUsername(String username) {
+        Log.d(TAG, "updateUsername: Updating username to: " + username);
+        myRef.child(mContext.getString(R.string.dbase_user))
+                .child(userID)
+                .child(mContext.getString(R.string.field_username))
+                .setValue(username);
+
+        myRef.child(mContext.getString(R.string.dbase_account_settings))
+                .child(userID)
+                .child(mContext.getString(R.string.field_username))
+                .setValue(username);
     }
 }
 

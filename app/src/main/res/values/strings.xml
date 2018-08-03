@@ -28,5 +28,8 @@
     <string name="fragment_profile">Profile</string>
     <string name="calling_activity">calling_activity</string>
     <string name="profile_activity">Profile Activity</string>
+    <string name="field_username">username</string>
+    <string name="username_exists">That username already exists!</string>
+    <string name="username_saved">Username saved!</string>
 
 </resources>

@@ -38,14 +38,14 @@
                     android:layout_marginStart="10dp"/>
 
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginEnd="10dp"
-                    android:src="@drawable/ic_checkmark"
                     android:id="@+id/saveChanges"
-                    android:contentDescription="icone para abrir configuracao de conta!" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="icone para abrir configuracao de conta!"
+                    android:src="@drawable/ic_checkmark" />
             </RelativeLayout>
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
