@@ -1,4 +1,4 @@
-package com.example.marcelo.instagramclone.Models;
+package com.example.marcelo.instagramclone.models;
 
 public class UsersAccountSettings {
 
@@ -11,9 +11,9 @@ public class UsersAccountSettings {
     private String username;
     private String website;
 
-    public UsersAccountSettings(String discription, String display_name, long followers, long following, long posts,
+    public UsersAccountSettings(String description, String display_name, long followers, long following, long posts,
                                 String profile_photo, String username, String website) {
-        this.description = discription;
+        this.description = description;
         this.display_name = display_name;
         this.followers = followers;
         this.following = following;

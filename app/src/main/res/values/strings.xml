@@ -31,5 +31,16 @@
     <string name="field_username">username</string>
     <string name="username_exists">That username already exists!</string>
     <string name="username_saved">Username saved!</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="cancel">CANCEL</string>
+    <string name="confirm">CONFIRM</string>
+    <string name="confirm_password_dialog">ConfirmPasswordDialog</string>
+    <string name="change_photo">change photo</string>
+    <string name="username">username</string>
+    <string name="display_name">display name</string>
+    <string name="website">website</string>
+    <string name="description">description</string>
+    <string name="private_information">PRIVATE INFORMATION</string>
+    <string name="phone_number">phone number</string>
 
 </resources>

@@ -5,9 +5,9 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.marcelo.instagramclone.Models.Users;
-import com.example.marcelo.instagramclone.Models.UsersAccountSettings;
-import com.example.marcelo.instagramclone.Models.UsersSettings;
+import com.example.marcelo.instagramclone.models.Users;
+import com.example.marcelo.instagramclone.models.UsersAccountSettings;
+import com.example.marcelo.instagramclone.models.UsersSettings;
 import com.example.marcelo.instagramclone.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -17,7 +17,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.Objects;
 
 public class FirebaseMethods {
@@ -26,13 +25,12 @@ public class FirebaseMethods {
     private Context mContext;
     private FirebaseAuth mAuth;
     private String userID;
-    private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference myRef;
 
     public FirebaseMethods(Context context) {
         this.mContext = context;
         mAuth = FirebaseAuth.getInstance();
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
         myRef = mFirebaseDatabase.getReference();
 
         if (mAuth.getCurrentUser() != null){
@@ -45,9 +43,9 @@ public class FirebaseMethods {
      * Register a new e-mail and password to firebase authentication.
      * @param email
      * @param password
-     * @param username
      */
-    public void registerNewEmail(String email, String password, String username){
+    public void registerNewEmail(String email, String password){
+        Log.d(TAG, "registerNewEmail: TTYING TO REGISTER NEW EMAIL!!!");
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -59,8 +57,6 @@ public class FirebaseMethods {
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             Toast.makeText(mContext, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-
-
 
                         } else if (task.isSuccessful()){
                             // send verification email
@@ -82,7 +78,8 @@ public class FirebaseMethods {
      * @param website
      * @param profile_photo
      */
-    public void AddNewUser(String email, String username, String description, String website, String profile_photo){
+    public void addNewUser(String email, String username, String description, String website, String profile_photo){
+        Log.d(TAG, "addNewUser: ADDING USER FIELDS TO THE DATABASE!!!");
 
         Users users = new Users(userID, 1, email, StringManipulation.condenseUsername(username));
         myRef.child(mContext.getString(R.string.dbase_user))
@@ -106,7 +103,8 @@ public class FirebaseMethods {
                 .setValue(settings);
     }
 
-    public void sendVerificationEmail(){
+    private void sendVerificationEmail(){
+        Log.d(TAG, "sendVerificationEmail: TRYING TO SEND VERIFICATION EMAIL!!!");
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null){
 

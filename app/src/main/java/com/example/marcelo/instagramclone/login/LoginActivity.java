@@ -75,8 +75,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 String email = mEmail.getText().toString();
                 String password = mPassword.getText().toString();
-                if (isStringNull(email) && isStringNull(password)){
-                    Toast.makeText(LoginActivity.this, "All the fields must be filled!",
+                if (isStringNull(email) || isStringNull(password)){
+                    Toast.makeText(LoginActivity.this, "All the fields must be filled out!",
                             Toast.LENGTH_LONG).show();
 
                 }else {
@@ -97,8 +97,10 @@ public class LoginActivity extends AppCompatActivity {
                                         try {
                                             //assert user != null; check later how exactly to use this statement!
                                             if (user.isEmailVerified()){
+
                                                 Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                                                 startActivity(intent);
+
                                             }else{
                                                 Toast.makeText(mContext, getString(R.string.emailNotVefied), Toast.LENGTH_SHORT).show();
                                                 progressBar.setVisibility(View.GONE);
@@ -110,16 +112,6 @@ public class LoginActivity extends AppCompatActivity {
                                             Log.e(TAG, "onComplete: NullPointerException: " + e.getMessage());
                                             
                                         }
-
-                                        /**
-
-                                        progressBar.setVisibility(View.GONE);
-                                        pleaseWait.setVisibility(View.GONE);
-
-                                        Toast.makeText(LoginActivity.this, getString(R.string.auth_success),
-                                                Toast.LENGTH_SHORT).show();
-
-                                         */
 
                                     } else {
 
@@ -162,16 +154,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
-        /**
-         *  if the user is logged in then navigate to HomeActivity and finishes the current one
-         *
-         */
-        if ( mAuth.getCurrentUser() != null){
-            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-            startActivity(intent);
-            finish();
-        }
     }
 
     private void setupFirebaseAuth(){

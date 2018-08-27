@@ -1,6 +1,5 @@
 package com.example.marcelo.instagramclone.login;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,7 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.marcelo.instagramclone.Models.Users;
+import com.example.marcelo.instagramclone.models.Users;
 import com.example.marcelo.instagramclone.R;
 import com.example.marcelo.instagramclone.Utils.FirebaseMethods;
 import com.google.firebase.auth.FirebaseAuth;
@@ -79,7 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (checkInputs(email, password, username)){
                     mProgressBar.setVisibility(View.VISIBLE);
                     loadingPleaseWait.setVisibility(View.VISIBLE);
-                    firebaseMethods.registerNewEmail(email, password, username);
+                    firebaseMethods.registerNewEmail(email, password);
 
                 }
             }
@@ -99,15 +98,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     // ************************************* FIREBASE **********************************************
 
-    private boolean isStringNull(String string){
-        Log.d(TAG, "isStringNull: Cheching string if null!");
-        if (string.equals("")){
-            return true;
-
-        }else {
-            return false;
-        }
-    }
 
     /**
      * Checks if @param username exists in the database
@@ -139,7 +129,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 // Add new user to the database
 
-                firebaseMethods.AddNewUser(email, mUsername, "", "", "");
+                firebaseMethods.addNewUser(mUsername, "", "", "", "");
                 Toast.makeText(RegisterActivity.this,getString(R.string.signup_success), Toast.LENGTH_SHORT).show();
                 mAuth.signOut();
             }

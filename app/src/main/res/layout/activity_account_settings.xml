@@ -30,7 +30,6 @@
 
             <include layout="@layout/layout_center_account_settings"/>
 
-
         </RelativeLayout>
 
         <include layout="@layout/layout_navigation_view"/>

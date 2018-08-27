@@ -18,13 +18,12 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.example.marcelo.instagramclone.Models.UsersAccountSettings;
-import com.example.marcelo.instagramclone.Models.UsersSettings;
+import com.example.marcelo.instagramclone.models.UsersAccountSettings;
+import com.example.marcelo.instagramclone.models.UsersSettings;
 import com.example.marcelo.instagramclone.R;
 import com.example.marcelo.instagramclone.Utils.BottomNavigationViewAdapter;
 import com.example.marcelo.instagramclone.Utils.FirebaseMethods;
 import com.example.marcelo.instagramclone.Utils.UniversalImageLoader;
-import com.example.marcelo.instagramclone.login.LoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;

@@ -13,9 +13,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.marcelo.instagramclone.Models.Users;
-import com.example.marcelo.instagramclone.Models.UsersAccountSettings;
-import com.example.marcelo.instagramclone.Models.UsersSettings;
+import com.example.marcelo.instagramclone.dialogs.ConfirmPasswordDialog;
+import com.example.marcelo.instagramclone.models.Users;
+import com.example.marcelo.instagramclone.models.UsersAccountSettings;
+import com.example.marcelo.instagramclone.models.UsersSettings;
 import com.example.marcelo.instagramclone.R;
 import com.example.marcelo.instagramclone.Utils.FirebaseMethods;
 import com.example.marcelo.instagramclone.Utils.UniversalImageLoader;
@@ -27,7 +28,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.Objects;
 
@@ -96,30 +96,29 @@ public class EditProfileFragment extends Fragment {
         final String email = mEmail.getText().toString();
         final Long phoneNumber = Long.parseLong(mPhoneNumber.getText().toString());
 
-        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Users users = new Users();
-                Log.d(TAG, "onDataChange: CURRENT USERNAME " + users.getUsername());
+        // case 1: if the user changed their username
+        if (!mUserSettings.getUsers().getUsername().equals(username)){
+            checkIfUsernameExists(username);
+        }
 
-                // case 1: the user did not change their name
-                if (!mUserSettings.getUsers().getUsername().equals(username)){
-                    checkIfUsernameExists(username);
+        // case 2: if the user changed their email
+        if (!mUserSettings.getUsers().getEmail().equals(email)){
+
+            //step1 reauthenticate
+            //      - confirm the password and the email
+            ConfirmPasswordDialog dialog = new ConfirmPasswordDialog();
+            assert getFragmentManager() != null;
+            dialog.show(getFragmentManager(), getString(R.string.confirm_password_dialog));
 
 
-                }
-                // case 2: the user changed their name therefore we have to check uniqueness
-                else {
+            //step2 check if the email is already registered
+            //      - fetchproviderforemail(String email)
 
-                }
+            //step3
+            //      - submit the new email to the database and authentication
+
+        }
             }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
 
     /**
      * Checks if @param username exists in the database

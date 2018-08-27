@@ -1,4 +1,4 @@
-package com.example.marcelo.instagramclone.Models;
+package com.example.marcelo.instagramclone.models;
 
 public class Users {
 

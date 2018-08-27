@@ -36,7 +36,7 @@ public class AccountSettingsActivity extends AppCompatActivity {
     private static final String TAG = "AccountSettingsActivity";
     private final static int ACTIVITY_NUM = 2;
     private Context mContext;
-    private SectionsStatePagerAdapter pagerAdaper;
+    private SectionsStatePagerAdapter pagerAdapter;
     private ViewPager mViewPager;
     private RelativeLayout mRelativLayout;
 
@@ -70,20 +70,20 @@ public class AccountSettingsActivity extends AppCompatActivity {
         Log.d(TAG, "getIncomingActivity: received incomming intent from " + getString(R.string.profile_activity));
         Intent intent = getIntent();
         if (intent.hasExtra(getString(R.string.calling_activity))){
-            setViewPager(pagerAdaper.getFragmentNumber(getString(R.string.edit_profile_fragment)));
+            setViewPager(pagerAdapter.getFragmentNumber(getString(R.string.edit_profile_fragment)));
         }
     }
     private void setupFragments() {
 
-        pagerAdaper = new SectionsStatePagerAdapter(getSupportFragmentManager());
-        pagerAdaper.addFragments(new EditProfileFragment(), getString(R.string.edit_profile_fragment)); // frag 1
-        pagerAdaper.addFragments(new SignOutFragment(), getString(R.string.sign_out_fragment)); // frag 2
+        pagerAdapter = new SectionsStatePagerAdapter(getSupportFragmentManager());
+        pagerAdapter.addFragments(new EditProfileFragment(), getString(R.string.edit_profile_fragment)); // frag 1
+        pagerAdapter.addFragments(new SignOutFragment(), getString(R.string.sign_out_fragment)); // frag 2
     }
 
     public void setViewPager(int fragmentNumber){
         mRelativLayout.setVisibility(View.GONE);
         Log.d(TAG, "setupViewPager: navigating to fragment #" + fragmentNumber);
-        mViewPager.setAdapter(pagerAdaper);
+        mViewPager.setAdapter(pagerAdapter);
         mViewPager.setCurrentItem(fragmentNumber);
         
     }
