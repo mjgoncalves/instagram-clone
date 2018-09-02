@@ -35,6 +35,7 @@ public class FirebaseMethods {
 
         if (mAuth.getCurrentUser() != null){
             userID = mAuth.getCurrentUser().getUid();
+            Log.d(TAG, "FirebaseMethods: CONSTRUTOR" + mAuth.getCurrentUser().getUid() );
         }
 
     }
@@ -82,9 +83,8 @@ public class FirebaseMethods {
         Log.d(TAG, "addNewUser: ADDING USER FIELDS TO THE DATABASE!!!");
 
         Users users = new Users(userID, 1, email, StringManipulation.condenseUsername(username));
-        myRef.child(mContext.getString(R.string.dbase_user))
-        .child(userID)
-        .setValue(users);
+
+        myRef.child(mContext.getString(R.string.dbase_user)).child(userID).setValue(users);
 
         UsersAccountSettings settings = new UsersAccountSettings(
 

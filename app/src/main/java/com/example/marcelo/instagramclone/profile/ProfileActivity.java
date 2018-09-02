@@ -41,11 +41,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         Log.d(TAG, "onCreate: started");
         init();
-//        setupBottomNavigationView();
-//        setupToolbar();
-//        setupActivityWidgets();
-//        setProfileImage();
-//        tempGridSetup();
+
 
     }
     
@@ -57,59 +53,4 @@ public class ProfileActivity extends AppCompatActivity {
         transaction.addToBackStack(getString(R.string.fragment_profile));
         transaction.commit();
     }
-
-
-//
-//    private void setProfileImage(){
-//        Log.d(TAG, "setProfileImage: Setting up profile photo!");
-//        String imgUrl = "https://http2.mlstatic.com/ursinho-de-pelucia-aviador-25cm-decoraco-anti-alergico-D_NQ_NP_830415-MLB25232632902_122016-F.jpg";
-//        UniversalImageLoader.setImage(imgUrl, profilePhoto, progressBar, "");
-//
-//
-//    }
-//
-//    private void setupActivityWidgets(){
-//
-//        Log.d(TAG, "setupActivityWidgets: Setting up profileActivity widgets!");
-//        progressBar = findViewById(R.id.progress_bar);
-//        progressBar.setVisibility(View.GONE);
-//        profilePhoto = findViewById(R.id.profile_photo);
-//        gridView = findViewById(R.id.gridview);
-//
-//
-//    }
-//
-//    private void setupImageGrid(ArrayList<String> imgURLs){
-//        GridImageAdapter adapter = new GridImageAdapter(mContext, R.layout.layout_grid_imageview, "", imgURLs);
-//        gridView.setAdapter(adapter);
-//
-//        int gridWidth = getResources().getDisplayMetrics().widthPixels;
-//        final int GRID_COL_NUM = 3;
-//        int imageWidth = gridWidth/GRID_COL_NUM;
-//        gridView.setColumnWidth(imageWidth);
-//
-//    }
-//
-//    private void tempGridSetup(){
-//        ArrayList<String> imgURLs = new ArrayList<>();
-//        imgURLs.add("http://1.bp.blogspot.com/-gB55QpVTLW4/VpjLCZOT5FI/AAAAAAAAk8s/kpOjWY5_ec0/s1600/IMG_3075.JPG");
-//        imgURLs.add("https://cdn.cheapoguides.com/wp-content/uploads/sites/3/2017/09/Otagi-Nenbutsu-ji-Shrine.jpg");
-//        imgURLs.add("https://abrilviagemeturismo.files.wordpress.com/2016/12/11-120241176.jpg?quality=70&strip=info&w=680&h=453&crop=1");
-//        imgURLs.add("https://cdn.cheapoguides.com/wp-content/uploads/sites/3/2017/09/Otagi-Nenbutsu-ji-Shrine.jpg");
-//        imgURLs.add("https://cdn.cheapoguides.com/wp-content/uploads/sites/3/2017/09/Otagi-Nenbutsu-ji-Shrine.jpg");
-//        imgURLs.add("http://travelzom.com/wp-content/uploads/2017/06/bali-indonesia-2.jpg");
-//        imgURLs.add("https://cdn.cheapoguides.com/wp-content/uploads/sites/3/2017/09/Otagi-Nenbutsu-ji-Shrine.jpg");
-//        imgURLs.add("https://abrilviagemeturismo.files.wordpress.com/2016/12/11-120241176.jpg?quality=70&strip=info&w=680&h=453&crop=1");
-//        imgURLs.add("https://cdn.cheapoguides.com/wp-content/uploads/sites/3/2017/09/Otagi-Nenbutsu-ji-Shrine.jpg");
-//        imgURLs.add("https://cdn.cheapoguides.com/wp-content/uploads/sites/3/2017/09/Otagi-Nenbutsu-ji-Shrine.jpg");
-//        imgURLs.add("http://1.bp.blogspot.com/-gB55QpVTLW4/VpjLCZOT5FI/AAAAAAAAk8s/kpOjWY5_ec0/s1600/IMG_3075.JPG");
-//        imgURLs.add("https://cdn.cheapoguides.com/wp-content/uploads/sites/3/2017/09/Otagi-Nenbutsu-ji-Shrine.jpg");
-//        imgURLs.add("https://abrilviagemeturismo.files.wordpress.com/2016/12/11-120241176.jpg?quality=70&strip=info&w=680&h=453&crop=1");
-//        imgURLs.add("https://cdn.cheapoguides.com/wp-content/uploads/sites/3/2017/09/Otagi-Nenbutsu-ji-Shrine.jpg");
-//        setupImageGrid(imgURLs);
-//
-//    }
-//
-
-
 }

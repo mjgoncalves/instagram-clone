@@ -16,7 +16,7 @@ public class ConfirmPasswordDialog extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.dialog_confirm_password, container, false);
+        View view = inflater.inflate(R.layout.confirm_password_dialog, container, false);
         Log.d(TAG, "onCreateView: started!");
 
         return view;

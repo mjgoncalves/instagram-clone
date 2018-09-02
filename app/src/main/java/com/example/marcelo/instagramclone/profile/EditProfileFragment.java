@@ -53,10 +53,10 @@ public class EditProfileFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_edit_profile, container, false);
         firebaseMethods = new FirebaseMethods(getActivity());
+        setupWidgets(view);
         setupFirebaseAuth();
         setupBackArrow(view);
         setupCheckmark(view);
-        setupWidgets(view);
         return view;
     }
 
@@ -118,7 +118,7 @@ public class EditProfileFragment extends Fragment {
             //      - submit the new email to the database and authentication
 
         }
-            }
+    }
 
     /**
      * Checks if @param username exists in the database
